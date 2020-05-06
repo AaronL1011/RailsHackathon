@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get "/", to: "pages#index"
+  devise_for :users
+  get "/", to: "pages#index", as: "root"
 end
