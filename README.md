@@ -35,3 +35,7 @@ Comments
 - Replies System
 - Comment Like System
 
+
+### ERD 
+
+![githot](docs/githot-erd.png)
