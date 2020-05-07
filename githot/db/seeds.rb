@@ -1,3 +1,9 @@
+user = User.new
+user.email = "admin@admin.com"
+user.password = "admin123"
+user.encrypted_password = "$2a$11$CGmdaAQM/m5DA9MwKJN5/eu1f9zzmVS1kb4WgP/6.ZOh.gGswWXIS"
+user.save!
+
 response = HTTParty.get("https://api.github.com/search/repositories?q=created:>2020-04-30&sort=stars&order=desc")
 json_resp = JSON.parse(response.body)
 
