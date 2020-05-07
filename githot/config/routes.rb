@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   patch "/repos/:id", to: "repos#update"
   delete "/repos/:id", to: "repos#destroy"
 
+  get "/about", to: "pages#about", as: "about"
+
   get "/comments", to: "comments#index", as: "comments_root"
   post "/comments", to: "comments#create"
   get "/comments/new", to: "comments#new", as: "new_comment"
@@ -16,5 +18,9 @@ Rails.application.routes.draw do
   put "/comments/:id", to: "comments#update"
   patch "/comments/:id", to: "comments#update"
   delete "/comments/:id", to: "comments#destroy"
+
+  get "/profile/:id", to: "profiles#index", as: "profile_root"
+  put "/profile/:id", to: "profiles#edit"
+  patch "/profile/:id", to: "profiles#edit"
 
 end
