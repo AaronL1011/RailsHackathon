@@ -6,9 +6,6 @@ class ProfilesController < ApplicationController
     end
 
     def edit 
-<<<<<<< Updated upstream
-        
-=======
         @user = User.find(params[:id])
     end
 
@@ -25,9 +22,5 @@ class ProfilesController < ApplicationController
 
     def user_params
         params.require(:user).permit(:bio, :picture)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     end
 end
