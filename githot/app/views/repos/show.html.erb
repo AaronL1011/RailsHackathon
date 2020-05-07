@@ -1,0 +1,21 @@
+<h1>Repo View</h1>
+<div class="grid">
+    <div></div>
+    <div class="content">
+        <div class="repo">
+        
+        </div>
+
+        <div class="comments">
+            <% for comment in @comments %>
+                <% if comment.repo_id == @repo.id %>
+                    <div class="comment">
+                        <%= comment.body %>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+
+    </div>
+    <div></div>
+</div>

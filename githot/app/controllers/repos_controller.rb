@@ -11,6 +11,8 @@ class ReposController < ApplicationController
     end
 
     def show
+        @repo = Repo.find(params[:id])
+        @comments = Comment.all
     end
 
     def update
