@@ -32,3 +32,9 @@
 .contact-list {
     list-style: none;
 }
+
+.comment-scroll {
+    max-height: 250px;
+    display: flex;
+    flex-direction: column-reverse;
+}
