@@ -5,12 +5,13 @@
     <% for repo in @repos %>
         <div class="card w-50 position-relative mb-5">
             <div class="card-header">
-                <%= repo.title%>
+                <strong><%= repo.title%></strong>
             </div>
             <div class="card-body">
                 <p class="card-text"><%= repo.description%></p>
                 <span class="badge badge-secondary"><%= repo.language%></span><br><br>
-                <a href="#" class="btn btn-primary">Discuss Repo</a> <a href="#" class="btn btn-primary">View on Github</a>
+                <%= link_to  "Discuss Repo", repo_path(repo.id), class:"btn btn-primary" %>
+                <a href="#" class="btn btn-primary">View on Github</a>
                 <span class="text-right"><%= repo.stars%></span>
             </div>
         </div>
