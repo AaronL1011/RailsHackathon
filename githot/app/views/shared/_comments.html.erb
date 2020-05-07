@@ -1,0 +1,29 @@
+<div class="container w-75 mb-4">
+    <h4>Discussion Board</h4>
+</div>
+<div class="w-75">
+    <div class="comment-scroll overflow-auto">
+        <ul class="list-group list-group-flush">
+            <% if !@repo.comments.empty?%>
+                <% for comment in @repo.comments%>
+                    <li class="list-group-item">
+                        <strong><%= comment.user.name%></strong>
+                        <p><%= comment.body %></p>
+                    </li>
+                <% end %>
+            <% else %>
+                    <li class="list-group-item">
+                        <p>There are currently no comments to show.</p>
+                    </li>
+            <% end %>
+        </ul>
+    </div>
+    <%= form_for([@repo, @repo.comments.build]) do |form| %>
+        <div>
+            <%= form.text_area :body, class: "form-control", placeholder: "Enter your comment here", rows:"4" %>
+        </div>
+        <div>
+            <%= form.submit "Post", class: "btn btn-primary mt-2"%>
+        </div>
+    <% end %>
+</div>
