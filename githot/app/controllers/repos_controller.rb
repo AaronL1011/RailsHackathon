@@ -27,6 +27,6 @@ class ReposController < ApplicationController
     private 
     
     def repo_params
-        params.require(:repo).permit(:title, :description, :stars, :language)
+        params.require(:repo).permit(:title, :description, :stars, :language, :url)
     end
 end
