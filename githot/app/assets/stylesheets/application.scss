@@ -12,3 +12,15 @@
  *
  */
 @import "bootstrap";
+
+.form-container {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.star-align {
+    transform: translateY(-2px);
+}
+
