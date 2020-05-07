@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   patch "/comments/:id", to: "comments#update"
   delete "/comments/:id", to: "comments#destroy"
 
+  get "/profile/:id", to: "profiles#index", as: "profile_root"
+  put "/profile/:id", to: "profiles#edit"
+  patch "/profile/:id", to: "profiles#edit"
+
 end
