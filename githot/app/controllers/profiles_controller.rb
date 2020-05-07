@@ -6,6 +6,25 @@ class ProfilesController < ApplicationController
     end
 
     def edit 
+<<<<<<< Updated upstream
         
+=======
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.update(params[:id], user_params)
+
+        if @user.errors.any?
+            render "edit"
+        else 
+        end
+    end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:bio, :picture)
+>>>>>>> Stashed changes
     end
 end
