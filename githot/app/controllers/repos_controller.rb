@@ -1,12 +1,15 @@
 class ReposController < ApplicationController
 
     def index
+        @repos = Repo.all
     end
 
     def create
+        @repo = Repo.create(repo_params)
     end
     
     def new
+        @repo = Repo.new
     end
 
     def show
@@ -18,5 +21,12 @@ class ReposController < ApplicationController
     end
 
     def destroy
+        @repo = Repo.find_by_id(params[:id])
+    end
+
+    private 
+    
+    def repo_params
+        params.require(:repo).permit(:title, :description, :stars, :language)
     end
 end

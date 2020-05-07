@@ -6,7 +6,8 @@ for i in 0..repos_count-1
     title = json_resp["items"][i]["name"]
     description = json_resp["items"][i]["description"]
     stars = json_resp["items"][i]["stargazers_count"]
-    Repo.create(title: title, description: description, stars: stars)
+    language = json_resp["items"][i]["language"]
+    Repo.create(title: title, description: description, stars: stars, language: language)
     puts "#{title} - Repo Created"
 end
 
