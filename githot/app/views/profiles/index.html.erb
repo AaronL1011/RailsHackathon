@@ -1,1 +1,28 @@
-<%= @user.name %>
+<div class="mb-5">
+    <h1 class="text-center"><%= @user.name %></h1>
+</div>
+
+<div class="grid">
+    <div class="repo">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <div class="card w-50 position-relative mb-5">
+                <div class="card-header">
+                    Bio
+                </div>
+                <div class="card-body">
+                    <%= @user.bio %>
+                </div>
+            </div>
+            
+            <div class="card w-50 position-relative mb-5">
+                <% for comment in @comments %>
+                    <% if comment.user_id == @user.id %>
+                        <div class="comment">
+                            <%= comment.body %>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
