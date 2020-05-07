@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   patch "/repos/:id", to: "repos#update"
   delete "/repos/:id", to: "repos#destroy"
 
+  get "/about", to: "pages#about", as: "about"
+
   get "/comments", to: "comments#index", as: "comments_root"
   post "/comments", to: "comments#create"
   get "/comments/new", to: "comments#new", as: "new_comment"
