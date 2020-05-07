@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   patch "/comments/:id", to: "comments#update"
   delete "/comments/:id", to: "comments#destroy"
 
-  get "/profile/:id", to: "profiles#index", as: "profile_root"
+  get "/profile/:id", to: "profiles#index", as: "user"
   put "/profile/:id", to: "profiles#edit"
   patch "/profile/:id", to: "profiles#edit"
-
+  post "/profile/:id", to: "profiles#update"
+  get "/profile/:id/edit", to: "profiles#edit", as: "edit_profile"
 end

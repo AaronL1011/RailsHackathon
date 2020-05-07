@@ -6,6 +6,21 @@ class ProfilesController < ApplicationController
     end
 
     def edit 
-        
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.update(params[:id], user_params)
+
+        if @user.errors.any?
+            render "edit"
+        else 
+        end
+    end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:bio)
     end
 end
