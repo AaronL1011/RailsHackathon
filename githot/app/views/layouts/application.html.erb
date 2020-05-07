@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Githot</title>
+    <title>GitHot</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,29 +16,29 @@
 
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <%= link_to  "Home", root_path, class:"nav-link" %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <%= link_to  "About", about_path, class: "nav-link" %>
           </li>
         </ul>
         <form class="form-inline">
           <% if user_signed_in? %>
-            <%= link_to "Log Out", destroy_user_session_path, class:"btn btn-outline-info my-2 my-sm-0", :method => :delete %>
+            <%= link_to "Log Out", destroy_user_session_path, class:"btn btn-outline-primary my-2 my-sm-0", :method => :delete %>
           <% else %>
-            <%= link_to("Sign In", new_user_session_path, class:"btn btn-outline-info my-2 my-sm-0" ) %>
+            <%= link_to("Sign In", new_user_session_path, class:"btn btn-outline-primary my-2 my-sm-0" ) %>
           <% end %>
         </form>
       </div>
     </nav>
   </header>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert alert-success text-center"><%= notice %></p>
+    <p class="alert alert-danger text-center"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
