@@ -1,21 +1,30 @@
-<h1>Repo View</h1>
+<div class="mb-5">
+    <h1 class="text-center">Githot Tracker</h1>
+</div>
+
 <div class="grid">
-    <div></div>
-    <div class="content">
-        <div class="repo">
-        
-        </div>
+    <div class="repo">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <div class="card w-50 position-relative mb-5">
+                <div class="card-header">
+                    <%= @repo.title %>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><%= @repo.description %></p>
+                    <a href="#" class="btn btn-primary">View on Github</a> <a href="#" class="btn btn-primary">Like</a> <a href="#" class="btn btn-primary">Dislike</a>
+                    <span class="text-right"><%= @repo.stars %></span>
+                </div>
+            </div>
 
-        <div class="comments">
-            <% for comment in @comments %>
-                <% if comment.repo_id == @repo.id %>
-                    <div class="comment">
-                        <%= comment.body %>
-                    </div>
+            <div class="card w-50 position-relative mb-5">
+                <% for comment in @comments %>
+                    <% if comment.repo_id == @repo.id %>
+                        <div class="comment">
+                            <%= comment.body %>
+                        </div>
+                    <% end %>
                 <% end %>
-            <% end %>
+            </div>
         </div>
-
     </div>
-    <div></div>
 </div>
