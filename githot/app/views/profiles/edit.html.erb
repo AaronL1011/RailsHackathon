@@ -7,22 +7,7 @@
 <% end %>
 
 <div class="text-left">
-    <div class="form-container">
-        <%= form_with model: @user, local: true, method: :post do |form| %>
-            <div class="form-group">
-                <%= form.label :profile_picture %>
-                <div class="w-50">
-                    <%= image_tag @user.picture if @user.picture.attached? %>
-                </div>
-                <br>
-                <br>
-                <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
-            </div>
-            
-            <div class="form-group">
-                <%= form.label :bio%>
-                <%= form.text_area :bio, value: @user.bio, class:"form-control", rows: "6" %>
-            </div>
+<div class="form-container">
 
 <%= form_with model: @user, local: true, method: :post do |form| %>
     <div class="form-group text-center">
@@ -43,4 +28,7 @@
     <div>
         <%= form.submit "Update", class: "btn btn-lg btn-primary btn-block" %>
     </div>
+<% end %>
+
+</div>
 </div>
