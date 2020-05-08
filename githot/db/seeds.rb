@@ -1,3 +1,7 @@
+Repo.destroy_all()
+Comment.destroy_all()
+User.destroy_all()
+
 user = User.new
 user.email = "admin@admin.com"
 user.name = "admin"
@@ -9,14 +13,17 @@ user.save!
 response = HTTParty.get("https://api.github.com/search/repositories?q=created:>2020-04-30&sort=stars&order=desc")
 json_resp = JSON.parse(response.body)
 
-repos_count = 20
-for i in 0..repos_count-1
+for i in 0...10
     title = json_resp["items"][i]["name"]
     description = json_resp["items"][i]["description"]
     stars = json_resp["items"][i]["stargazers_count"]
     language = json_resp["items"][i]["language"]
     url = json_resp["items"][i]["html_url"]
-    Repo.create(title: title, description: description, stars: stars, language: language, url: url)
+    forks = json_resp["items"][i]["forks_count"]
+    owner = json_resp["items"][i]["owner"]["login"]
+    likes = 0
+    dislikes = 0
+    Repo.create(title: title, description: description, stars: stars, language: language, url: url, forks: forks, owner: owner, likes: likes, dislikes: dislikes)
     puts "#{title} - Repo Created"
 end
 

@@ -24,6 +24,16 @@ class ReposController < ApplicationController
         @repo = Repo.find_by_id(params[:id])
     end
 
+    def like
+        @repo = Repo.find_by_id(params[:id])
+        @repo.update(likes: @repo.likes + 1)
+    end
+
+    def dislike
+        @repo = Repo.find_by_id(params[:id])
+        @repo.update(likes: @repo.likes - 1)
+    end
+
     private 
     
     def repo_params

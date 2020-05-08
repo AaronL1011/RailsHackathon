@@ -27,6 +27,7 @@
 .notice, .alert {
     padding: 0;
     margin: 0;
+    border: 0;
 }
 
 .contact-list {
@@ -34,7 +35,41 @@
 }
 
 .comment-scroll {
-    max-height: 250px;
+    max-height: 350px;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.comment-history {
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-picture {
+    width: 50px;
+    vertical-align: top;
+    margin-right: 10px;
+    border-radius: 30px;
+}
+
+.comment-content {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 60px;
+}
+
+.comment-controls {
+    text-align: right;
+}
+
+.comment-time {
+    vertical-align: middle;
+    margin: 0 0 0 10px;
+}
+
+.profile-picture img {
+    width: 200px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
