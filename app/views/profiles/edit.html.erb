@@ -13,7 +13,11 @@
     <div class="form-group text-center">
         <%= form.label :profile_picture %>
         <div class="profile-picture">
-            <%= image_tag @user.picture if @user.picture.attached? %>
+            <% if !@user.picture.attached? %>
+                <%= image_tag  "https://i.stack.imgur.com/34AD2.jpg"%>
+            <% else %>
+                <%= image_tag @user.picture %>
+            <% end %>
         </div>
         <br>
         <br>

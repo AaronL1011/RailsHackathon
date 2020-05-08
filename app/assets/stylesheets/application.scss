@@ -44,6 +44,7 @@
     max-height: 450px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
 }
 
 .comment-picture {
@@ -72,4 +73,16 @@
     width: 200px;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.likes-div {
+    flex-grow: 1;
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.show-card a {
+    margin-right: 5px;
 }
