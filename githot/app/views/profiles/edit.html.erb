@@ -12,6 +12,11 @@
 <%= form_with model: @user, local: true, method: :post do |form| %>
     <div class="form-group">
         <%= form.label :profile_picture %>
+        <div class="w-50">
+            <%= image_tag @user.picture if @user.picture.attached? %>
+        </div>
+        <br>
+        <br>
         <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
     </div>
     
