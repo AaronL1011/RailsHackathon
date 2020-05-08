@@ -23,7 +23,7 @@ for i in 0...10
     owner = json_resp["items"][i]["owner"]["login"]
     likes = 0
     dislikes = 0
-    Repo.create(title: title, description: description, stars: stars, language: language, url: url, forks: forks, owner: owner, likes: likes, dislikes: dislikes)
+    Repo.create(title: title, description: description, stars: stars, language: language, url: url, forks: forks, owner: owner)
     puts "#{title} - Repo Created"
 end
 
