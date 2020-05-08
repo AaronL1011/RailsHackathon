@@ -12,7 +12,7 @@ GitHot makes use of the Github search API, returning the top 10 most starred rep
 
 GitHot periodically makes calls to the GitHub API each week to keep the Repository listings up to date.
 
-![Home Page](home_page.png)
+![Home Page](docs/home_page.png)
 
 ## Design
 
