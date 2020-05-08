@@ -7,8 +7,27 @@
             <% if !@repo.comments.empty?%>
                 <% for comment in @repo.comments%>
                     <li class="list-group-item">
-                        <strong><%= comment.user.name%></strong>
-                        <p><%= comment.body %></p>
+                        <div class="d-flex align-items-center">
+                            <% if !comment.user.picture.attached? %>
+                                <%= image_tag  "https://i.stack.imgur.com/34AD2.jpg", class:"comment-picture"%>
+                            <% else %>
+                                <%= image_tag  comment.user.picture, class:"comment-picture" %>
+                            <% end %>
+                            <strong><%= comment.user.name%></strong>
+                            <p class="text-muted comment-time"><%= time_ago_in_words(comment.created_at) %> ago</p>
+                        </div>
+                        <div class="comment-content">
+                            <p><%= comment.body %></p>
+                        </div>
+                        <% if current_user == comment.user %>
+                            <%= form_tag repo_comment_path(:repo_id => @repo.id, :id => comment.id), method: "delete" do %>
+                                <div class="comment-controls">
+                                    <%= submit_tag "delete", class: "btn btn-secondary btn-sm" %>
+                                    <%# <%= link_to "edit", edit_repo_comment_path(comment.id), class: "icon" %>
+                                </div>
+                            <% end %>
+                        <% end %>
+
                     </li>
                 <% end %>
             <% else %>
@@ -27,3 +46,4 @@
         </div>
     <% end %>
 </div>
+

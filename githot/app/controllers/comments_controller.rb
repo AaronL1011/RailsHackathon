@@ -24,7 +24,9 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Comment.find_by_id(params[:id])
+        @repo_id = params[:repo_id]
+        Comment.find(params[:id]).destroy
+        redirect_to repo_path(@repo_id)
     end
 
     private

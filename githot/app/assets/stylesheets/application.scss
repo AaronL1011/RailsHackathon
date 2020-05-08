@@ -38,3 +38,25 @@
     display: flex;
     flex-direction: column-reverse;
 }
+
+.comment-picture {
+    width: 50px;
+    vertical-align: top;
+    margin-right: 10px;
+    border-radius: 30px;
+}
+
+.comment-content {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 60px;
+}
+
+.comment-controls {
+    text-align: right;
+}
+
+.comment-time {
+    vertical-align: middle;
+    margin: 0 0 0 10px;
+}
