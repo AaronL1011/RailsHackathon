@@ -30,6 +30,10 @@ for i in 0...10
     puts "#{title} - Repo Created"
 end
 
-20.times {
-    User.first.comments.create(repo_id: 1, body: "lorem something cool something")
-}
+# needs to be created after usr and repos are populated
+case Rails.env
+when "development"
+    20.times {
+        User.first.comments.create(repo_id: 1, body: "lorem something cool something")
+    }
+end
