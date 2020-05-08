@@ -35,9 +35,15 @@
 }
 
 .comment-scroll {
-    max-height: 250px;
+    max-height: 350px;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.comment-history {
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
 }
 
 .comment-picture {

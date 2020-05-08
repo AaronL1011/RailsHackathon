@@ -1,4 +1,4 @@
-<div class="mb-5">
+<div class="mb-5 mt-5">
     <h1 class="text-center"><%= @user.name %></h1>
 </div>
 
@@ -25,10 +25,10 @@
             
             <div class="w-75">
                 <h2>Comment History</h2>
-                <div class="comment-scroll overflow-auto">
+                <div class="comment-history overflow-auto">
                     <ul class="list-group list-group-flush">
                         <% if !current_user.comments.empty?%>
-                            <% for comment in current_user.comments%>
+                            <% for comment in current_user.comments.reverse%>
                                 <li class="list-group-item">
                                     <div class="d-flex align-items-center">
                                         <% if !comment.user.picture.attached? %>
