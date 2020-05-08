@@ -8,6 +8,11 @@
 
 <%= form_with model: @user, local: true, method: :post do |form| %>
     <div>
+        <%= form.label :picture %>
+        <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+    </div>
+    
+    <div>
         <%= form.label :bio %>
         <%= form.text_field :bio, value: @user.bio %>
     </div>
