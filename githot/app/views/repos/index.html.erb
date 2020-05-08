@@ -12,7 +12,7 @@
                 <p class="card-text"><%= repo.description%></p>
                 <span class="badge badge-secondary"><%= repo.language%></span><br><br>
                 <%= link_to  "Discuss Repo", repo_path(repo.id), class:"btn btn-primary mb-2" %>
-                <%= link_to  "View on Github", repo.url, class:"btn btn-primary mb-2" %>
+                <%= link_to  "View on Github", repo.url, class:"btn btn-primary mb-2", target:"_blank" %>
             </div>
         </div>
     <% end %>
