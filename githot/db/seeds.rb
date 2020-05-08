@@ -1,3 +1,7 @@
+Repo.destroy_all()
+Comment.destroy_all()
+User.destroy_all()
+
 user = User.new
 user.email = "admin@admin.com"
 user.name = "admin"
@@ -16,7 +20,9 @@ for i in 0..repos_count-1
     stars = json_resp["items"][i]["stargazers_count"]
     language = json_resp["items"][i]["language"]
     url = json_resp["items"][i]["html_url"]
-    Repo.create(title: title, description: description, stars: stars, language: language, url: url)
+    forks = json_resp["items"][i]["forks_count"]
+    owner = json_resp["items"][i]["owner"]["login"]
+    Repo.create(title: title, description: description, stars: stars, language: language, url: url, forks: forks, owner: owner)
     puts "#{title} - Repo Created"
 end
 

@@ -8,6 +8,11 @@
             <div class="profile-picture">
                 <%= image_tag @user.picture if @user.picture.attached? %>
             </div>
+
+            <div>
+                <%= link_to  "Login Details", edit_user_registration_path(@user.id), class:"btn btn-primary mb-2" %>
+                <%= link_to  "Edit Profile", edit_profile_path(@user.id), class:"btn btn-primary mb-2" %>
+            </div>
             
             <div class="card w-50 position-relative mb-5">
                 <div class="card-header">
@@ -18,14 +23,41 @@
                 </div>
             </div>
             
-            <div class="card w-50 position-relative mb-5">
-                <% for comment in @comments %>
-                    <% if comment.user_id == @user.id %>
-                        <div class="comment">
-                            <%= comment.body %>
-                        </div>
-                    <% end %>
-                <% end %>
+            <div class="w-75">
+                <h2>Comment History</h2>
+                <div class="comment-scroll overflow-auto">
+                    <ul class="list-group list-group-flush">
+                        <% if !current_user.comments.empty?%>
+                            <% for comment in current_user.comments%>
+                                <li class="list-group-item">
+                                    <div class="d-flex align-items-center">
+                                        <% if !comment.user.picture.attached? %>
+                                            <%= image_tag  "https://i.stack.imgur.com/34AD2.jpg", class:"comment-picture"%>
+                                        <% else %>
+                                            <%= image_tag  comment.user.picture, class:"comment-picture" %>
+                                        <% end %>
+                                        <strong><%= comment.user.name%></strong>
+                                        <p class="text-muted comment-time">on <%= link_to  "#{comment.repo.title}", repo_path(comment.repo) %></p>
+                                    </div>
+                                    <div class="comment-content">
+                                        <p><%= comment.body %></p>
+                                    </div>
+                                    <%= form_tag repo_comment_path(:repo_id => comment.repo.id, :id => comment.id), method: "delete" do %>
+                                        <div class="comment-controls">
+                                            <%= submit_tag "delete", class: "btn btn-secondary btn-sm" %>
+                                            <%# <%= link_to "edit", edit_repo_comment_path(comment.id), class: "icon" %>
+                                        </div>
+                                    <% end %>
+
+                                </li>
+                            <% end %>
+                        <% else %>
+                                <li class="list-group-item">
+                                    <p>There are currently no comments to show.</p>
+                                </li>
+                        <% end %>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
