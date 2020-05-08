@@ -2,13 +2,16 @@ Repo.destroy_all()
 Comment.destroy_all()
 User.destroy_all()
 
-user = User.new
-user.email = "admin@admin.com"
-user.name = "admin"
-user.bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-user.password = "admin123"
-user.encrypted_password = "$2a$11$CGmdaAQM/m5DA9MwKJN5/eu1f9zzmVS1kb4WgP/6.ZOh.gGswWXIS"
-user.save!
+case Rails.env
+when "development"
+    user = User.new
+    user.email = "admin@admin.com"
+    user.name = "admin"
+    user.bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    user.password = "admin123"
+    user.encrypted_password = "$2a$11$CGmdaAQM/m5DA9MwKJN5/eu1f9zzmVS1kb4WgP/6.ZOh.gGswWXIS"
+    user.save!
+end
 
 response = HTTParty.get("https://api.github.com/search/repositories?q=created:>2020-04-30&sort=stars&order=desc")
 json_resp = JSON.parse(response.body)
