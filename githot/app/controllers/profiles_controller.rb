@@ -16,6 +16,8 @@ class ProfilesController < ApplicationController
             render "edit"
         else 
         end
+
+        redirect_to user_path
     end
 
     private
