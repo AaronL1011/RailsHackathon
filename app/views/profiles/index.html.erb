@@ -6,7 +6,11 @@
     <div class="repo">
         <div class="d-flex flex-column align-items-center justify-content-center">
             <div class="profile-picture">
-                <%= image_tag @user.picture if @user.picture.attached? %>
+                <% if !@user.picture.attached? %>
+                    <%= image_tag  "https://i.stack.imgur.com/34AD2.jpg"%>
+                <% else %>
+                    <%= image_tag @user.picture %>
+                <% end %>
             </div>
 
             <div>
